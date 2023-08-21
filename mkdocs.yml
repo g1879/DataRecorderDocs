@@ -70,7 +70,7 @@ nav:
 
   - 使用方法:
     - 💬 概览: usage/introduction.md
-    - 🐷 Recorder: usage/Recorder.md
+    - 🐯 Recorder: usage/Recorder.md
     - 🐨 DBRecorder: usage/DBRecorder.md
     - 🐼 Filler: usage/Filler.md
     - 🐻 ByteRecorder: usage/ByteRecorder.md

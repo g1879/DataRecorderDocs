@@ -31,6 +31,37 @@ f = Filler(path='data.csv', cache_size=50)
 
 ---
 
+## 🧾 指定工作表
+
+可为记录器指定要操作的工作表，如工作表不存在，程序会自动创建。
+
+如不对工作表进行任何设置，程序会使用活动工作表。
+
+但只有 xlsx 文件可以指定。
+
+### 📃 指定默认工作表
+
+用`set.table()`方法指定默认工作表，之后所有添加的数据都会默认添加到该工作表。
+
+```python
+from DataRecorder import Filler
+
+f = Filler('demo.xlsx')
+f.set.table('sheet1')
+```
+
+---
+
+### 📃 为每条数据指定要写入的工作表
+
+使用`add_data()`方法的`table`参数可为每条数据指定工作表。
+
+```python
+f.add_data('abc', table='sheet2')
+```
+
+---
+
 ## ➕ 添加数据
 
 使用`add_data()`方法添加数据。
@@ -112,37 +143,6 @@ f.add_data(data, 'd')
 
 ---
 
-## 🧾 指定工作表
-
-可为记录器指定要操作的工作表，如工作表不存在，程序会自动创建。
-
-如不对工作表进行任何设置，程序会使用活动工作表。
-
-但只有 xlsx 文件可以指定。
-
-### 📃 指定默认工作表
-
-用`set.table()`方法指定默认工作表，之后所有添加的数据都会默认添加到该工作表。
-
-```python
-from DataRecorder import Filler
-
-f = Filler('demo.xlsx')
-f.set.table('sheet1')
-```
-
----
-
-### 📃 为每个数据指定要写入的工作表
-
-使用`add_data()`方法的`table`参数可为每条数据指定工作表。
-
-```python
-f.add_data('abc', table='sheet2')
-```
-
----
-
 ## 🔗 设置单元格链接
 
 很多时候须要在 xlsx 文件里设置链接，可使用`set_link()`方法进行设置，用法和`add_data()`类似。xlsx 和 csv 文件都支持。
@@ -152,6 +152,50 @@ f.set_link(coord='a5', link='https://www.baidu.com', content='百度')
 ```
 
 这样设置即可对 A5 单元格设置指向该网址的链接，其中`content`参数是可选的。
+
+---
+
+## 🖼️ 设置单元格图片
+
+使用`set_img()`可向单元格插入或删除图片。
+
+!!! warning "注意"
+    使用此功能前必须先安装 Pillow 库。
+    ```
+    pip install Pillow
+    ```
+
+### 🎨 插入图片
+
+**示例：**
+
+```python
+f = Filler()
+f.set_img('A3', img_path='img.jpg')
+```
+
+插入图片时，可指定图片的宽和高，如果只指定其中之一，另一个值会自动按比例缩放。
+
+**示例：**
+
+```python
+f.set_img('A3', img_path='img.jpg', width=200, height=100)  # 指定图片大小
+f.set_img('A3', img_path='img.jpg', width=200)  # 指定图片宽度，高度自动按比例设置
+f.set_img('A3', img_path='img.jpg', height=100)  # 指定图片高度，宽度自动按比例设置
+```
+
+---
+
+### 🎨 删除图片
+
+`img_path`设置为`None`，可清除单元格内原有图片，此时`width`和`height`参数无效。
+
+**示例：**
+
+```python
+f = Filler()
+f.set_img('A3', img_path=None)
+```
 
 ---
 
@@ -224,6 +268,37 @@ f.record()
 
 ```python
 f.set_style('A1', None)
+```
+
+---
+
+## 🔄 设置行高和列宽
+
+### ↕️ 设置行高
+
+使用`set_row_height()`方法设置行高。
+
+**示例：**
+
+```python
+f = Filler()
+f.set_row_height(row=3, height=30)
+```
+
+---
+
+### ↔️ 设置列宽
+
+使用`set_col_width()`方法设置列宽。
+
+列的指定既可使用序号，也可使用字母形式的列号。
+
+**示例：**
+
+```python
+f = Filler()
+f.set_col_width(col=3, height=30)  # 传入列序号
+f.set_col_width(col='c', height=30)  # 传入列号
 ```
 
 ---
@@ -373,6 +448,26 @@ for key in f.keys:  # 遍历任务
 
 ---
 
+### 📌 `set_img()`
+
+此方法用于插入图片到单元格。
+
+可设置图片大小，如只设置宽或高其中一个，另一个值会按比例缩放。
+
+宽高都为`None`时不改变图片大小。
+
+|    参数名称    |                 类型                  | 默认值 | 说明                     |
+|:----------:|:-----------------------------------:|:---:|------------------------|
+|  `coord`   | `int`<br>`str`<br>`tuple`<br>`list` | 必填  | 单元格坐标                  |
+| `img_path` |      `str`<br>`Path`<br>`None`      | 必填  | 图片路径，为`None`时清除单元格原有图片 |
+|  `width`   |          `float`<br>`None`          | `None` | 图片宽度                   |
+|  `height`  |          `float`<br>`None`          | `None` | 图片高度                   |
+
+
+**返回：**`None`
+
+---
+
 ### 📌 `set_link()`
 
 此方法用于为单元格设置超链接。
@@ -419,6 +514,32 @@ f.record()
 
 ---
 
+### 📌 `set_row_height()`
+
+此方法用于设置行高。
+
+|   参数名称   |   类型    | 默认值    | 说明 |
+|:--------:|:-------:|:------:|--|
+|  `row`   |  `int`  | 必填     | 行号 |
+| `height` | `float` | 必填     | 行高 |
+
+**返回：**`None`
+
+---
+
+### 📌 `set_col_width()`
+
+此方法用于设置行高。
+
+|   参数名称   |   类型    | 默认值    | 说明 |
+|:--------:|:-------:|:------:|--|
+|  `col`   |  `int`<br>`str`  | 必填     | 列序号或列号 |
+| `width` | `float` | 必填     | 列宽 |
+
+**返回：**`None`
+
+---
+
 ### 📌 `record()`
 
 此方法用于把数据记录到文件，然后清空缓存。可把数据保存到一个新文件。
@@ -443,7 +564,7 @@ f.record()
 
 ---
 
-## ⚙️ `Recorder`对象的参数设置
+## ⚙️ `Filler`对象运行参数设置
 
 ### 📌 `set.path()`
 

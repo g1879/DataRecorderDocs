@@ -4,57 +4,15 @@
 
 当`show_msg`属性为`True`时，程序在开始写入和写入结束的时候，会打印提示语句，请务必注意。
 
-## ❗ 对象的声明
+## ❗ 退出前记得保存数据！
 
 本库的几个工具能够在程序关闭时自动记录缓存中的数据，但以下情况例外：
 
 - 记录器为全局对象，且使用 xlsx 文件
-
 - 记录器为全局对象，且使用 db 文件
-
 - 记录器为全局对象，且接收多线程写入数据
 
-这两种情况下自动记录都会出错。解决方法有以下两种：
-
-- 把记录器对象声明放在一个方法体里
-
-- 显式调用`record()`方法进行写入数据
-
-错误做法：
-
-```python
-from DataRecorder import Recorder
-
-r = Recorder('test.xlsx')  # 使用 xlsx 格式
-r.add_data('abc')
-# 不显式调用 record()方法
-```
-
-正确做法1，显式调用`record()`方法：
-
-```python
-from DataRecorder import Recorder
-
-r = Recorder('test.xlsx')  # 使用 xlsx 格式
-r.add_data('abc')
-r.record()  # 显式调用 record()方法
-```
-
-正确做法2，把对象声明放在方法体内：
-
-```python
-from DataRecorder import Recorder
-
-def main():
-    r = Recorder('test.xlsx')  # r 的声明放在方法体内
-    r.add_data('abc')  # 可在程序结束时自动记录
-
-if __name__ == '__main__':
-    main()
-```
-
-!!! tip "Tips"
-推荐都放在方法体内进行对象声明，避免使用全局对象，养成良好的编码习惯。
+为避免意外情况发生，强烈建议在程序结束前显式调用`recorder()`方法，主动写入数据。
 
 ## ❗ 慎用负数列号
 
@@ -88,11 +46,8 @@ f.record()
 解决方法有几种：
 
 - 不使用负数列号
-
 - 避免数据长度超出最大列数
-
 - 使用 csv 文件。csv 文件最大列数根据第一行列数确定，下面的行添加列数不影响
-
 - 不自动保存，而使用手动保存，但下次打开文件时依然和这次列数不一样
 
 ## ❗ 二维数组的判断

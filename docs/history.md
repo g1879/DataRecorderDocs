@@ -3,6 +3,14 @@ hide:
   - navigation
 ---
 
+## v3.4.5
+
+- `Filler`增加`set_img()`方法，可插入图片
+- `Filler`增加`set_row_height()`和`set_col_width()`方法
+- 修复`Filler`添加单行数据时出现的问题
+
+---
+
 ## v3.4.3
 
 - 优化`DBRecorder`写入效率

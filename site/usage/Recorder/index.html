@@ -25,7 +25,7 @@
     
     
       
-        <title>🐷 Recorder - DataRecorder</title>
+        <title>🐯 Recorder - DataRecorder</title>
       
     
     
@@ -153,7 +153,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🐷 Recorder
+              🐯 Recorder
             
           </span>
         </div>
@@ -441,12 +441,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          🐷 Recorder
+          🐯 Recorder
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        🐷 Recorder
+        🐯 Recorder
       </a>
       
         
@@ -661,10 +661,10 @@
       
         <li class="md-nav__item">
   <a href="#recorder_1" class="md-nav__link">
-    ⚙️ Recorder对象的参数设置
+    ⚙️ Recorder对象运行参数设置
   </a>
   
-    <nav class="md-nav" aria-label="⚙️ Recorder对象的参数设置">
+    <nav class="md-nav" aria-label="⚙️ Recorder对象运行参数设置">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1212,10 +1212,10 @@
       
         <li class="md-nav__item">
   <a href="#recorder_1" class="md-nav__link">
-    ⚙️ Recorder对象的参数设置
+    ⚙️ Recorder对象运行参数设置
   </a>
   
-    <nav class="md-nav" aria-label="⚙️ Recorder对象的参数设置">
+    <nav class="md-nav" aria-label="⚙️ Recorder对象运行参数设置">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1426,7 +1426,7 @@
                   
 
 
-  <h1>🐷 Recorder</h1>
+  <h1>🐯 Recorder</h1>
 
 <p><code>Recorder</code>的功能简单直观高效实用，只做一个动作，就是不断接收数据，按顺序往文件末尾添加。可以接收单行数据，或二维数据一次写入多行。</p>
 <p>支持 csv、xlsx、json、txt 四种格式文件。</p>
@@ -1583,9 +1583,8 @@
 <hr />
 <h2 id="_9">💾 写入文件</h2>
 <h3 id="_10">✍ 自动写入</h3>
-<p>当接收数据到达指定条数，或程序结束时，会触发写入文件动作，同时清空缓存。</p>
+<p>当接收数据到达指定条数，会触发写入文件动作，同时清空缓存。</p>
 <p>如果写入时文件被打开而无法写入，会自动等待文件关闭再写入。</p>
-<p>如果因其它问题导致写入失败，会返回收集到的数据，并打印到控制台。</p>
 <p>在写入文件开始和结束时，默认会打印提示，提醒用户此时不要关闭进程。如须设置不显示，可把<code>show_msg</code>参数设置为<code>False</code>。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">DataRecorder</span> <span class="kn">import</span> <span class="n">Recorder</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
@@ -1605,16 +1604,12 @@
 <h3 id="_12">⚠️ 注意事项</h3>
 <ul>
 <li>
-<p>如果对象为全局对象，那么在使用 xlsx 或多线程写入的时候，退出自动记录功能会报错，须显式调用<code>record()</code>方法，或把记录器声明放在一个方法内。</p>
-</li>
-<li>
 <p>切勿在文件正在写入的时候关闭进程，以免造成文件损坏。</p>
 </li>
 <li>
 <p>强烈建议在程序结束时显式调用<code>record()</code>保存数据。</p>
 </li>
 </ul>
-<p>详见《注意事项》一节。</p>
 <hr />
 <h2 id="_13">📑 文件格式</h2>
 <p><code>Recorder</code>支持 xlsx、csv、json、txt 四种记录格式。</p>
@@ -1773,7 +1768,7 @@
 <p>参数：无</p>
 <p><strong>返回：</strong><code>None</code></p>
 <hr />
-<h2 id="recorder_1">⚙️ <code>Recorder</code>对象的参数设置</h2>
+<h2 id="recorder_1">⚙️ <code>Recorder</code>对象运行参数设置</h2>
 <h3 id="setpath">📌 <code>set.path()</code></h3>
 <p>此方法用于设置文件路径，更改时会自动保存缓存数据到文件。</p>
 <table>
