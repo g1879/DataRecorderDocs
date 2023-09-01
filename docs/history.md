@@ -3,6 +3,15 @@ hide:
   - navigation
 ---
 
+## v3.4.6
+
+- `Recorder`对 csv 和 xlsx 文件插入`dict`数据时可自动匹配表头
+- `Recorder`增加`set.fit_head()`方法
+- `Recorder`和`Filler`的`set.head()`方法增加`table`参数
+- 保存失败时会把数据保存到`'failed_data.txt'`文件
+
+---
+
 ## v3.4.5
 
 - `Filler`增加`set_img()`方法，可插入图片
