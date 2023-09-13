@@ -3,6 +3,13 @@ hide:
   - navigation
 ---
 
+## v3.4.8
+
+- `Filler`增加`dict_keys`和`row_num_title`属性
+- `Filler`增加`set.row_num_title()`方法
+
+---
+
 ## v3.4.7
 
 - `Recorder`对 csv 和 xlsx 文件插入`dict`数据时可自动匹配表头
