@@ -3,6 +3,14 @@ hide:
   - navigation
 ---
 
+## v3.4.10
+
+- 修复`Filler`的`set_img()`清空图片问题
+- 修复`DBRecorder`不能用于多线程问题
+- 修复文件夹不存在时`set.head()`报错问题
+
+---
+
 ## v3.4.9
 
 - `Filler`增加`dict_keys`和`row_num_title`属性
