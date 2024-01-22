@@ -9,7 +9,7 @@ hide:
 
 支持多线程同时写入文件。
 
-当前版本：3.4.10
+当前版本：3.4.12
 
 **交流QQ群：** 636361957
 
@@ -45,4 +45,4 @@ hide:
 
 如果本项目对您有所帮助，不妨请作者我喝杯咖啡 ：）
 
-![](http://g1879.gitee.io/drissionpagedocs/imgs/code.jpg)
+![](https://gitee.com/g1879/DrissionPageDocs/raw/master/docs/imgs/code.jpg)
