@@ -5,13 +5,13 @@ hide:
 
 本库是一个基于 python 的工具集，用于记录数据到文件。
 
-使用方便，代码简洁， 是一个可靠、省心且实用的工具。
+使用方便，代码简洁，是一个可靠、省心且实用的工具。
 
 支持多线程同时写入文件。
 
-当前版本：3.4.8
+当前版本：3.4.13
 
-**交流QQ群：** 897838127[已满]、558778073
+**交流QQ群：** 558778073
 
 **联系邮箱：** g1879@qq.com
 
@@ -45,4 +45,4 @@ hide:
 
 如果本项目对您有所帮助，不妨请作者我喝杯咖啡 ：）
 
-![](http://g1879.gitee.io/drissionpagedocs/imgs/code.jpg)
+![](https://gitee.com/g1879/DrissionPageDocs/raw/master/static/img/code.jpg)

@@ -3,6 +3,14 @@ hide:
   - navigation
 ---
 
+## v3.4.13
+
+- `Filler`也支持`set.fit_head()`
+- `Filler`设置格式的方法都加上`table`参数
+- `set.head()`增加`to_file`参数
+- 设置行高和列宽也支持范围
+- 优化逻辑，提高效率
+
 ## v3.4.8
 
 - `Filler`增加`dict_keys`和`row_num_title`属性

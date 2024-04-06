@@ -949,6 +949,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#setfit_head" class="md-nav__link">
+    📌 set.fit_head()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#setbefore" class="md-nav__link">
     📌 set.before()
   </a>
@@ -1719,6 +1726,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#setfit_head" class="md-nav__link">
+    📌 set.fit_head()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#setbefore" class="md-nav__link">
     📌 set.before()
   </a>
@@ -2256,18 +2270,10 @@
 <p>创建<code>CellStyle</code>对象，传入此方法即可。<code>CellStyle</code>介绍详见相关章节。</p>
 <p>可设置范围：</p>
 <ul>
-<li>
-<p>单个单元格：传入单元格坐标</p>
-</li>
-<li>
-<p>整行：传入行号，<code>int</code>格式</p>
-</li>
-<li>
-<p>整列：传入列名，<code>str</code>格式</p>
-</li>
-<li>
-<p>指定范围：传入<code>'A1:B3'</code>格式字符串，指定一个矩形范围</p>
-</li>
+<li>单个单元格：传入单元格坐标</li>
+<li>整行：传入行号，<code>int</code>格式</li>
+<li>整列：传入列名，<code>str</code>格式</li>
+<li>指定范围：传入<code>'A1:B3'</code>格式字符串，指定一个矩形范围</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">DataRecorder</span> <span class="kn">import</span> <span class="n">Filler</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kn">from</span> <span class="nn">DataRecorder.style</span> <span class="kn">import</span> <span class="n">CellStyle</span>
@@ -2607,7 +2613,7 @@
 </tr>
 <tr>
 <td style="text-align: center;"><code>table</code></td>
-<td style="text-align: center;"><code>str</code><br><code>bool</code></td>
+<td style="text-align: center;"><code>str</code><br><code>bool</code><br/><code>None</code></td>
 <td style="text-align: center;"><code>None</code></td>
 <td>当前数据要插入的表格名称，仅支持 xlsx 格式。为<code>None</code>表示用<code>set.table()</code>方法设置的值，为<code>bool</code>表示活动的表格</td>
 </tr>
@@ -2653,6 +2659,12 @@
 <td style="text-align: center;"><code>None</code></td>
 <td>图片高度</td>
 </tr>
+<tr>
+<td style="text-align: center;"><code>table</code></td>
+<td style="text-align: center;"><code>str</code><br><code>bool</code><br/><code>None</code></td>
+<td style="text-align: center;"><code>None</code></td>
+<td>当前数据要插入的表格名称，仅支持 xlsx 格式。为<code>None</code>表示用<code>set.table()</code>方法设置的值，为<code>bool</code>表示活动的表格</td>
+</tr>
 </tbody>
 </table>
 <p><strong>返回：</strong><code>None</code></p>
@@ -2686,6 +2698,12 @@
 <td style="text-align: center;"><code>str</code></td>
 <td style="text-align: center;"><code>None</code></td>
 <td>单元格内容</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>table</code></td>
+<td style="text-align: center;"><code>str</code><br><code>bool</code><br/><code>None</code></td>
+<td style="text-align: center;"><code>None</code></td>
+<td>当前数据要插入的表格名称，仅支持 xlsx 格式。为<code>None</code>表示用<code>set.table()</code>方法设置的值，为<code>bool</code>表示活动的表格</td>
 </tr>
 </tbody>
 </table>
@@ -2723,6 +2741,12 @@
 <td style="text-align: center;"><code>bool</code></td>
 <td style="text-align: center;"><code>True</code></td>
 <td>是否直接替换已有样式</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>table</code></td>
+<td style="text-align: center;"><code>str</code><br><code>bool</code><br/><code>None</code></td>
+<td style="text-align: center;"><code>None</code></td>
+<td>当前数据要插入的表格名称，仅支持 xlsx 格式。为<code>None</code>表示用<code>set.table()</code>方法设置的值，为<code>bool</code>表示活动的表格</td>
 </tr>
 </tbody>
 </table>
@@ -2763,6 +2787,12 @@
 <td style="text-align: center;">必填</td>
 <td>行高</td>
 </tr>
+<tr>
+<td style="text-align: center;"><code>table</code></td>
+<td style="text-align: center;"><code>str</code><br><code>bool</code><br/><code>None</code></td>
+<td style="text-align: center;"><code>None</code></td>
+<td>当前数据要插入的表格名称，仅支持 xlsx 格式。为<code>None</code>表示用<code>set.table()</code>方法设置的值，为<code>bool</code>表示活动的表格</td>
+</tr>
 </tbody>
 </table>
 <p><strong>返回：</strong><code>None</code></p>
@@ -2790,6 +2820,12 @@
 <td style="text-align: center;"><code>float</code></td>
 <td style="text-align: center;">必填</td>
 <td>列宽</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>table</code></td>
+<td style="text-align: center;"><code>str</code><br><code>bool</code><br/><code>None</code></td>
+<td style="text-align: center;"><code>None</code></td>
+<td>当前数据要插入的表格名称，仅支持 xlsx 格式。为<code>None</code>表示用<code>set.table()</code>方法设置的值，为<code>bool</code>表示活动的表格</td>
 </tr>
 </tbody>
 </table>
@@ -2983,6 +3019,35 @@
 <td style="text-align: center;"><code>str</code></td>
 <td style="text-align: center;"><code>None</code></td>
 <td>要设置的表名称，为<code>None</code>则设置活动表格</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>to_file</code></td>
+<td style="text-align: center;"><code>bool</code></td>
+<td style="text-align: center;"><code>True</code></td>
+<td>是否改变文件中的表头，如为<code>False</code>可使运行时使用的表头和文件的不一致</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr />
+<h3 id="setfit_head">📌 <code>set.fit_head()</code></h3>
+<p>此方法用于设置数据是否自动匹配表头。</p>
+<p>当数据为<code>dict</code>格式，且不指定列时，数据才会自动匹配表头。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">参数名称</th>
+<th style="text-align: center;">类型</th>
+<th style="text-align: center;">默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>on_off</code></td>
+<td style="text-align: center;"><code>bool</code></td>
+<td style="text-align: center;"><code>True</code></td>
+<td><code>bool</code>类型表示开或关</td>
 </tr>
 </tbody>
 </table>

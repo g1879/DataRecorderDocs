@@ -214,11 +214,8 @@ f.set_img('A3', img_path=None)
 可设置范围：
 
 - 单个单元格：传入单元格坐标
-
 - 整行：传入行号，`int`格式
-
 - 整列：传入列名，`str`格式
-
 - 指定范围：传入`'A1:B3'`格式字符串，指定一个矩形范围
 
 ```python
@@ -545,7 +542,7 @@ for row in filler.dict_keys:
 |:-------:|:---------------------------------------------:|:------:|------------------------------------------------------------------------------------------|
 | `data`  |                     `Any`                     |   必填   | 可接收任意格式，接收一维`list`、`tuple`和`dict`时记录为一行，接收二维数据时记录为多行                                     |
 | `coord` | `list`<br>`int`<br>`str`<br>`tuple`<br>`None` |   必填   | 要添加数据的坐标，可输入行号、列号或行列坐标，如'a3'、7、(3, 1)、\[3, 1]、'c'。也可以是负数，代表从下往上数，-1 是倒数第一行；为`None`时表示新增行 |
-| `table` |                `str`<br>`bool`                | `None` | 当前数据要插入的表格名称，仅支持 xlsx 格式。为`None`表示用`set.table()`方法设置的值，为`bool`表示活动的表格                    |
+| `table` |                `str`<br>`bool`<br/>`None`                | `None` | 当前数据要插入的表格名称，仅支持 xlsx 格式。为`None`表示用`set.table()`方法设置的值，为`bool`表示活动的表格                    |
 
 **返回：**`None`
 
@@ -565,6 +562,7 @@ for row in filler.dict_keys:
 | `img_path` |      `str`<br>`Path`<br>`None`      |   必填   | 图片路径，为`None`时清除单元格原有图片 |
 |  `width`   |          `float`<br>`None`          | `None` | 图片宽度                   |
 |  `height`  |          `float`<br>`None`          | `None` | 图片高度                   |
+| `table` |      `str`<br>`bool`<br/>`None`      | `None` | 当前数据要插入的表格名称，仅支持 xlsx 格式。为`None`表示用`set.table()`方法设置的值，为`bool`表示活动的表格                    |
 
 **返回：**`None`
 
@@ -579,6 +577,7 @@ for row in filler.dict_keys:
 |  `coord`  | `int`<br>`str`<br>`tuple`<br>`list` |   必填   | 单元格坐标              |
 |  `link`   |           `str`<br>`None`           |   必填   | 超链接文本，为`None`时删除链接 |
 | `content` |                `str`                | `None` | 单元格内容              |
+| `table` |      `str`<br>`bool`<br/>`None`      | `None` | 当前数据要插入的表格名称，仅支持 xlsx 格式。为`None`表示用`set.table()`方法设置的值，为`bool`表示活动的表格                    |
 
 **返回：**`None`
 
@@ -598,6 +597,7 @@ for row in filler.dict_keys:
 |  `coord`  | `int`<br>`str`<br>`tuple`<br>`list` |   必填   | 单元格坐标、行号、列号或范围       |
 |  `style`  |        `CellStyle`<br>`None`        |   必填   | 样式对象，为`None`时清除单元格样式 |
 | `replace` |               `bool`                | `True` | 是否直接替换已有样式           |
+| `table` |      `str`<br>`bool`<br/>`None`      | `None` | 当前数据要插入的表格名称，仅支持 xlsx 格式。为`None`表示用`set.table()`方法设置的值，为`bool`表示活动的表格                    |
 
 **返回：**`None`
 
@@ -625,6 +625,7 @@ f.record()
 |:--------:|:-------:|:---:|----|
 |  `row`   |  `int`  | 必填  | 行号 |
 | `height` | `float` | 必填  | 行高 |
+| `table` |      `str`<br>`bool`<br/>`None`      | `None` | 当前数据要插入的表格名称，仅支持 xlsx 格式。为`None`表示用`set.table()`方法设置的值，为`bool`表示活动的表格                    |
 
 **返回：**`None`
 
@@ -638,6 +639,7 @@ f.record()
 |:-------:|:--------------:|:---:|--------|
 |  `col`  | `int`<br>`str` | 必填  | 列序号或列号 |
 | `width` |    `float`     | 必填  | 列宽     |
+| `table` |      `str`<br>`bool`<br/>`None`      | `None` | 当前数据要插入的表格名称，仅支持 xlsx 格式。为`None`表示用`set.table()`方法设置的值，为`bool`表示活动的表格                    |
 
 **返回：**`None`
 
@@ -731,6 +733,21 @@ f.record()
 |:-------:|:-----------------:|:------:| |
 | `head`  | `list`<br>`tuple` | 必填 | 表头内容 |
 | `table` | `str`  | `None` | 要设置的表名称，为`None`则设置活动表格 |
+| `to_file` |      `bool`       | `True` | 是否改变文件中的表头，如为`False`可使运行时使用的表头和文件的不一致 |
+
+**返回：**`None`
+
+---
+
+### 📌 `set.fit_head()`
+
+此方法用于设置数据是否自动匹配表头。
+
+当数据为`dict`格式，且不指定列时，数据才会自动匹配表头。
+
+| 参数名称     | 类型     | 默认值 | 说明            |
+|:--------:|:------:|:---:| ------------- |
+| `on_off` | `bool` | `True`  | `bool`类型表示开或关 |
 
 **返回：**`None`
 
