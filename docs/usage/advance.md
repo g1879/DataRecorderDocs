@@ -57,7 +57,7 @@ r.add_data(('张三', '男'))
 
 ```python
 r = Recorder()
-r.set.fill_head(True)
+r.set.fit_head(True)
 ```
 
 **示例：**
