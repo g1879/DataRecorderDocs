@@ -3,6 +3,17 @@ hide:
   - navigation
 ---
 
+## v3.4.15
+
+- `Recorder`的`set.fit_head()`增加`add_new`参数，可自动添加新列到表头
+- `Recorder`的`set.style()`改为`set.styles()`
+- 设置支持链式操作
+- 优化`Filler`自动匹配表头逻辑
+- 修复`Recorder`设置样式不生效问题
+- 完全移除已声明即将废弃的`set_path()`、`set_before()`、`set_after()`
+
+---
+
 ## v3.4.13
 
 - `Filler`也支持`set.fit_head()`
@@ -10,6 +21,8 @@ hide:
 - `set.head()`增加`to_file`参数
 - 设置行高和列宽也支持范围
 - 优化逻辑，提高效率
+
+---
 
 ## v3.4.8
 
